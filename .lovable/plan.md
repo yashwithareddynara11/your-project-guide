@@ -1,9 +1,11 @@
 # College Food Choices Analytics Project
 
 ## Goal
+
 Build a standalone web-based analytics dashboard that showcases college dietary habits, plus a Tableau embed page so the project can also integrate external Tableau dashboards. All data will be synthetic, read-only sample data.
 
 ## Deliverables
+
 1. **Synthetic dataset** — realistic college food choices data (breakfast habits, calorie awareness, stress eating, cuisine preferences, health ratings, eating out, cooking frequency, etc.).
 2. **Home / Overview page** — project intro, use-case scenarios, and navigation to dashboard/story/Tableau sections.
 3. **Dashboard page** — interactive Recharts visualizations covering:
@@ -19,6 +21,7 @@ Build a standalone web-based analytics dashboard that showcases college dietary 
 7. **SEO & metadata** — real app title/description, sitemap, robots.txt.
 
 ## Technical approach
+
 - Use **Recharts** (already installed) for all charts.
 - Keep data in static JSON generated in `src/lib/data/food-choices.ts`.
 - Build components under `src/components/` for chart cards, layout, and the Tableau embed.
@@ -33,10 +36,12 @@ Build a standalone web-based analytics dashboard that showcases college dietary 
 - No backend or auth needed — read-only showcase.
 
 ## Out of scope
+
 - User authentication / roles
 - Real-time data updates
 - Backend data persistence
 - Actual Tableau dashboard files (we provide a web embed placeholder and a standalone dashboard replacement)
 
 ## Dependencies
+
 No new runtime dependencies needed. Recharts, shadcn/Radix primitives, and Tailwind are already available.
