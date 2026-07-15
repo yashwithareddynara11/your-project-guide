@@ -8,7 +8,7 @@ import {
   cafeteriaData,
 } from "@/lib/data/analysis";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell, Legend } from "recharts";
-import { Coffee, Brain, Salad, HeartPulse } from "lucide-react";
+import { Coffee, Brain, Salad } from "lucide-react";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
