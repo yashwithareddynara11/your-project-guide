@@ -107,7 +107,15 @@ export function Footer() {
   );
 }
 
-export function PageLayout({ children, title, subtitle }: { children: ReactNode; title?: string; subtitle?: string }) {
+export function PageLayout({
+  children,
+  title,
+  subtitle,
+}: {
+  children: ReactNode;
+  title?: string;
+  subtitle?: string;
+}) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -115,8 +123,14 @@ export function PageLayout({ children, title, subtitle }: { children: ReactNode;
         {(title || subtitle) && (
           <div className="border-b border-border bg-card">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-              {title && <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{title}</h1>}
-              {subtitle && <p className="mt-2 max-w-2xl text-lg text-muted-foreground">{subtitle}</p>}
+              {title && (
+                <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                  {title}
+                </h1>
+              )}
+              {subtitle && (
+                <p className="mt-2 max-w-2xl text-lg text-muted-foreground">{subtitle}</p>
+              )}
             </div>
           </div>
         )}
@@ -128,5 +142,9 @@ export function PageLayout({ children, title, subtitle }: { children: ReactNode;
 }
 
 export function Section({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <section className={`mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 ${className}`}>{children}</section>;
+  return (
+    <section className={`mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 ${className}`}>
+      {children}
+    </section>
+  );
 }

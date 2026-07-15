@@ -106,7 +106,9 @@ export function cafeteriaData() {
     fastFood: 0,
   }));
   for (const record of foodChoicesData) {
-    const vegBin = bins.find((b) => record.vegetablesPerDay >= b.min && record.vegetablesPerDay <= b.max);
+    const vegBin = bins.find(
+      (b) => record.vegetablesPerDay >= b.min && record.vegetablesPerDay <= b.max,
+    );
     if (vegBin) {
       const row = rows.find((r) => r.servings === vegBin.name)!;
       row.vegetables += 1;
@@ -155,16 +157,17 @@ export function stressVsHealthData() {
 export function keyStats() {
   const total = foodChoicesData.length;
   const breakfastEaters = foodChoicesData.filter((r) => r.eatsBreakfast).length;
-  const avgGpa =
-    foodChoicesData.reduce((acc, r) => acc + r.gpa, 0) / total;
-  const avgFastFood =
-    foodChoicesData.reduce((acc, r) => acc + r.fastFoodPerWeek, 0) / total;
-  const avgVeg =
-    foodChoicesData.reduce((acc, r) => acc + r.vegetablesPerDay, 0) / total;
+  const avgGpa = foodChoicesData.reduce((acc, r) => acc + r.gpa, 0) / total;
+  const avgFastFood = foodChoicesData.reduce((acc, r) => acc + r.fastFoodPerWeek, 0) / total;
+  const avgVeg = foodChoicesData.reduce((acc, r) => acc + r.vegetablesPerDay, 0) / total;
   const topComfortReason = comfortFoodReasonsData()[0];
   return [
     { label: "Students surveyed", value: total, suffix: "" },
-    { label: "Eat breakfast regularly", value: Math.round((breakfastEaters / total) * 100), suffix: "%" },
+    {
+      label: "Eat breakfast regularly",
+      value: Math.round((breakfastEaters / total) * 100),
+      suffix: "%",
+    },
     { label: "Average GPA", value: Number(avgGpa.toFixed(2)), suffix: "" },
     { label: "Avg fast food / week", value: Number(avgFastFood.toFixed(1)), suffix: "" },
     { label: "Avg vegetable servings/day", value: Number(avgVeg.toFixed(1)), suffix: "" },

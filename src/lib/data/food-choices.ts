@@ -27,7 +27,15 @@ export interface StudentRecord {
   fruitsPerDay: number;
   waterGlassesPerDay: number;
   // Cuisine
-  favoriteCuisine: "Greek" | "Italian" | "Indian" | "Thai" | "American" | "Mexican" | "Chinese" | "Japanese";
+  favoriteCuisine:
+    | "Greek"
+    | "Italian"
+    | "Indian"
+    | "Thai"
+    | "American"
+    | "Mexican"
+    | "Chinese"
+    | "Japanese";
   // Academic
   concentrationLevel: "Low" | "Moderate" | "High" | "Very high";
   gpa: number;
@@ -122,7 +130,12 @@ const CUISINES: StudentRecord["favoriteCuisine"][] = [
   "Chinese",
   "Japanese",
 ];
-const CONCENTRATION: StudentRecord["concentrationLevel"][] = ["Low", "Moderate", "High", "Very high"];
+const CONCENTRATION: StudentRecord["concentrationLevel"][] = [
+  "Low",
+  "Moderate",
+  "High",
+  "Very high",
+];
 const ENERGY: StudentRecord["energyLevel"][] = ["Low", "Moderate", "High"];
 
 function seededRandom(seed: number) {
@@ -158,7 +171,14 @@ export function generateDataset(count = 250): StudentRecord[] {
     const seed = i + 1;
     const gender = pickWeighted(seed, GENDERS, [45, 50, 5]);
     const year = pickWeighted(seed + 2, YEARS, [30, 28, 24, 18]);
-    const age = year === "First" ? 18 : year === "Second" ? 19 : year === "Third" ? 20 : 21 + Math.floor(seededRandom(seed + 3) * 3);
+    const age =
+      year === "First"
+        ? 18
+        : year === "Second"
+          ? 19
+          : year === "Third"
+            ? 20
+            : 21 + Math.floor(seededRandom(seed + 3) * 3);
     const major = MAJORS[Math.floor(seededRandom(seed + 4) * MAJORS.length)];
 
     // Breakfast habits: engineering/busy students skip more
@@ -222,8 +242,13 @@ export function generateDataset(count = 250): StudentRecord[] {
     );
     const fastFoodPerWeek = Math.round(
       clamp(
-        (eatingOutFrequency === "Very often" ? 5 : eatingOutFrequency === "Often" ? 3 : eatingOutFrequency === "Sometimes" ? 2 : 1) +
-          normalish(seed + 17, 0, 1.5),
+        (eatingOutFrequency === "Very often"
+          ? 5
+          : eatingOutFrequency === "Often"
+            ? 3
+            : eatingOutFrequency === "Sometimes"
+              ? 2
+              : 1) + normalish(seed + 17, 0, 1.5),
         0,
         14,
       ),
@@ -249,11 +274,7 @@ export function generateDataset(count = 250): StudentRecord[] {
       clamp(normalish(seed + 20, exerciseFrequency === "Daily" ? 8 : 5.5, 2), 1, 12),
     );
 
-    const favoriteCuisine = pickWeighted(
-      seed + 21,
-      CUISINES,
-      [12, 20, 16, 8, 18, 10, 10, 6],
-    );
+    const favoriteCuisine = pickWeighted(seed + 21, CUISINES, [12, 20, 16, 8, 18, 10, 10, 6]);
 
     // Academic performance correlates with breakfast, sleep, health
     const concentrationLevel =
@@ -261,8 +282,13 @@ export function generateDataset(count = 250): StudentRecord[] {
         ? pickWeighted(seed + 22, CONCENTRATION, [5, 15, 45, 35])
         : pickWeighted(seed + 22, CONCENTRATION, [18, 35, 32, 15]);
     const gpa = clamp(
-      (concentrationLevel === "Very high" ? 3.7 : concentrationLevel === "High" ? 3.3 : concentrationLevel === "Moderate" ? 2.9 : 2.4) +
-        normalish(seed + 23, 0, 0.25),
+      (concentrationLevel === "Very high"
+        ? 3.7
+        : concentrationLevel === "High"
+          ? 3.3
+          : concentrationLevel === "Moderate"
+            ? 2.9
+            : 2.4) + normalish(seed + 23, 0, 0.25),
       2.0,
       4.0,
     );
@@ -327,7 +353,9 @@ export function getConcentrationScore(level: StudentRecord["concentrationLevel"]
   return map[level];
 }
 
-export function getFrequencyScore(level: StudentRecord["eatingOutFrequency"] | StudentRecord["cookingFrequency"]) {
+export function getFrequencyScore(
+  level: StudentRecord["eatingOutFrequency"] | StudentRecord["cookingFrequency"],
+) {
   const map: Record<string, number> = {
     Never: 1,
     Rarely: 2,

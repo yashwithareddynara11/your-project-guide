@@ -48,7 +48,14 @@ export const Route = createFileRoute("/dashboard")({
   component: DashboardPage,
 });
 
-const COLORS = ["hsl(155 55% 45%)", "hsl(35 85% 55%)", "hsl(220 60% 55%)", "hsl(0 70% 55%)", "hsl(280 55% 55%)", "hsl(170 55% 45%)"];
+const COLORS = [
+  "hsl(155 55% 45%)",
+  "hsl(35 85% 55%)",
+  "hsl(220 60% 55%)",
+  "hsl(0 70% 55%)",
+  "hsl(280 55% 55%)",
+  "hsl(170 55% 45%)",
+];
 
 function DashboardPage() {
   const stats = keyStats();
@@ -102,7 +109,12 @@ function BreakfastConcentrationChart() {
               }}
             />
             <Legend />
-            <Bar dataKey="concentration" name="Concentration" fill={COLORS[0]} radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="concentration"
+              name="Concentration"
+              fill={COLORS[0]}
+              radius={[4, 4, 0, 0]}
+            />
             <Bar dataKey="gpa" name="GPA" fill={COLORS[1]} radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
@@ -163,8 +175,22 @@ function EatingOutCookingChart() {
               }}
             />
             <Legend />
-            <Line type="monotone" dataKey="eatingOut" name="Eating out" stroke={COLORS[3]} strokeWidth={3} dot />
-            <Line type="monotone" dataKey="cooking" name="Cooking" stroke={COLORS[0]} strokeWidth={3} dot />
+            <Line
+              type="monotone"
+              dataKey="eatingOut"
+              name="Eating out"
+              stroke={COLORS[3]}
+              strokeWidth={3}
+              dot
+            />
+            <Line
+              type="monotone"
+              dataKey="cooking"
+              name="Cooking"
+              stroke={COLORS[0]}
+              strokeWidth={3}
+              dot
+            />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -181,7 +207,11 @@ function HealthCuisineChart() {
     >
       <div className="h-72">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} layout="vertical" margin={{ top: 8, right: 16, bottom: 8, left: 72 }}>
+          <BarChart
+            data={data}
+            layout="vertical"
+            margin={{ top: 8, right: 16, bottom: 8, left: 72 }}
+          >
             <CartesianGrid strokeDasharray="3 3" horizontal={false} />
             <XAxis type="number" domain={[0, 5]} tick={{ fontSize: 12 }} />
             <YAxis dataKey="name" type="category" width={70} tick={{ fontSize: 12 }} />
@@ -225,9 +255,21 @@ function CafeteriaChart() {
               }}
             />
             <Legend />
-            <Bar dataKey="vegetables" name="Vegetables" stackId="a" fill={COLORS[0]} radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="vegetables"
+              name="Vegetables"
+              stackId="a"
+              fill={COLORS[0]}
+              radius={[4, 4, 0, 0]}
+            />
             <Bar dataKey="fruits" name="Fruits" stackId="a" fill={COLORS[4]} />
-            <Bar dataKey="fastFood" name="Fast food" stackId="b" fill={COLORS[3]} radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="fastFood"
+              name="Fast food"
+              stackId="b"
+              fill={COLORS[3]}
+              radius={[4, 4, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>

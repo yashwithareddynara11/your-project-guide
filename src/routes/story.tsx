@@ -7,7 +7,17 @@ import {
   stressVsHealthData,
   cafeteriaData,
 } from "@/lib/data/analysis";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell, Legend } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  Cell,
+  Legend,
+} from "recharts";
 import { Coffee, Brain, Salad } from "lucide-react";
 
 export const Route = createFileRoute("/story")({
@@ -30,7 +40,13 @@ export const Route = createFileRoute("/story")({
   component: StoryPage,
 });
 
-const COLORS = ["hsl(155 55% 45%)", "hsl(35 85% 55%)", "hsl(220 60% 55%)", "hsl(0 70% 55%)", "hsl(280 55% 55%)"];
+const COLORS = [
+  "hsl(155 55% 45%)",
+  "hsl(35 85% 55%)",
+  "hsl(220 60% 55%)",
+  "hsl(0 70% 55%)",
+  "hsl(280 55% 55%)",
+];
 
 function StoryPage() {
   return (
@@ -56,7 +72,9 @@ function StoryAcademicFocus() {
           <Coffee className="h-5 w-5" />
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">Scenario 1: Improving Academic Focus</h2>
+          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
+            Scenario 1: Improving Academic Focus
+          </h2>
           <p className="text-sm text-muted-foreground">Rahul, a second-year engineering student</p>
         </div>
       </div>
@@ -64,14 +82,14 @@ function StoryAcademicFocus() {
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-4 text-sm leading-relaxed text-foreground sm:text-base">
           <p>
-            Rahul often skips breakfast and relies on fast food between classes. After exploring the dashboard,
-            he notices a clear pattern: students who eat breakfast regularly report higher concentration scores
-            and higher average GPAs.
+            Rahul often skips breakfast and relies on fast food between classes. After exploring the
+            dashboard, he notices a clear pattern: students who eat breakfast regularly report
+            higher concentration scores and higher average GPAs.
           </p>
           <p>
-            The data suggests that even a quick morning meal can set the tone for the day. Rahul decides to start
-            with a simple breakfast routine and reduce late-night junk food to improve both his health and
-            academic productivity.
+            The data suggests that even a quick morning meal can set the tone for the day. Rahul
+            decides to start with a simple breakfast routine and reduce late-night junk food to
+            improve both his health and academic productivity.
           </p>
           <div className="rounded-lg bg-muted/40 p-4">
             <p className="font-medium text-foreground">Key takeaway</p>
@@ -81,7 +99,10 @@ function StoryAcademicFocus() {
           </div>
         </div>
 
-        <ChartCard title="Breakfast Frequency vs. Concentration & GPA" description="Average scores by frequency.">
+        <ChartCard
+          title="Breakfast Frequency vs. Concentration & GPA"
+          description="Average scores by frequency."
+        >
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data} margin={{ top: 8, right: 8, bottom: 8, left: -8 }}>
@@ -96,7 +117,12 @@ function StoryAcademicFocus() {
                   }}
                 />
                 <Legend />
-                <Bar dataKey="concentration" name="Concentration" fill={COLORS[0]} radius={[4, 4, 0, 0]} />
+                <Bar
+                  dataKey="concentration"
+                  name="Concentration"
+                  fill={COLORS[0]}
+                  radius={[4, 4, 0, 0]}
+                />
                 <Bar dataKey="gpa" name="GPA" fill={COLORS[1]} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -117,7 +143,9 @@ function StoryStressEating() {
           <Brain className="h-5 w-5" />
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">Scenario 2: Managing Stress Eating</h2>
+          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
+            Scenario 2: Managing Stress Eating
+          </h2>
           <p className="text-sm text-muted-foreground">Priya, a first-year college student</p>
         </div>
       </div>
@@ -125,25 +153,29 @@ function StoryStressEating() {
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-4 text-sm leading-relaxed text-foreground sm:text-base">
           <p>
-            During exams, Priya reaches for comfort food to cope with stress. The dashboard shows that stress and
-            boredom are the leading reasons students choose comfort food, and that students under high stress
-            report lower health scores.
+            During exams, Priya reaches for comfort food to cope with stress. The dashboard shows
+            that stress and boredom are the leading reasons students choose comfort food, and that
+            students under high stress report lower health scores.
           </p>
           <p>
-            Recognizing the pattern, Priya begins choosing healthier alternatives like fruits and home-cooked
-            meals, and adds short walks to her routine. The data story reinforces that awareness is the first step
-            toward change.
+            Recognizing the pattern, Priya begins choosing healthier alternatives like fruits and
+            home-cooked meals, and adds short walks to her routine. The data story reinforces that
+            awareness is the first step toward change.
           </p>
           <div className="rounded-lg bg-muted/40 p-4">
             <p className="font-medium text-foreground">Key takeaway</p>
             <p className="mt-1 text-muted-foreground">
-              High stress correlates with lower self-reported health and a higher reliance on comfort food.
+              High stress correlates with lower self-reported health and a higher reliance on
+              comfort food.
             </p>
           </div>
         </div>
 
         <div className="grid gap-4">
-          <ChartCard title="Top Comfort Food Triggers" description="Why students choose comfort food.">
+          <ChartCard
+            title="Top Comfort Food Triggers"
+            description="Why students choose comfort food."
+          >
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
@@ -171,7 +203,10 @@ function StoryStressEating() {
             </div>
           </ChartCard>
 
-          <ChartCard title="Stress Level vs. Health Score" description="Lower health scores under high stress.">
+          <ChartCard
+            title="Stress Level vs. Health Score"
+            description="Lower health scores under high stress."
+          >
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={stressData} margin={{ top: 8, right: 8, bottom: 8, left: -8 }}>
@@ -213,7 +248,9 @@ function StoryCafeteria() {
           <Salad className="h-5 w-5" />
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">Scenario 3: Improving Cafeteria Choices</h2>
+          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
+            Scenario 3: Improving Cafeteria Choices
+          </h2>
           <p className="text-sm text-muted-foreground">University cafeteria manager</p>
         </div>
       </div>
@@ -221,13 +258,14 @@ function StoryCafeteria() {
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-4 text-sm leading-relaxed text-foreground sm:text-base">
           <p>
-            The cafeteria manager reviews the dashboard and finds that vegetable and fruit consumption among
-            students is relatively low, while fast food consumption is high. This signals an opportunity to
-            reshape the campus menu around healthier options.
+            The cafeteria manager reviews the dashboard and finds that vegetable and fruit
+            consumption among students is relatively low, while fast food consumption is high. This
+            signals an opportunity to reshape the campus menu around healthier options.
           </p>
           <p>
-            Based on these insights, the team introduces fresh salad bars, balanced meal combos, and more
-            vegetable-forward options. They also track cuisine preferences to rotate popular healthy dishes.
+            Based on these insights, the team introduces fresh salad bars, balanced meal combos, and
+            more vegetable-forward options. They also track cuisine preferences to rotate popular
+            healthy dishes.
           </p>
           <div className="rounded-lg bg-muted/40 p-4">
             <p className="font-medium text-foreground">Key takeaway</p>
@@ -244,7 +282,10 @@ function StoryCafeteria() {
             <StatCard label="Fast food meals" value={totalFastFood} trend="down" />
           </div>
 
-          <ChartCard title="Daily Servings Distribution" description="Students grouped by servings per day.">
+          <ChartCard
+            title="Daily Servings Distribution"
+            description="Students grouped by servings per day."
+          >
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data} margin={{ top: 8, right: 8, bottom: 8, left: -8 }}>
@@ -259,9 +300,21 @@ function StoryCafeteria() {
                     }}
                   />
                   <Legend />
-                  <Bar dataKey="vegetables" name="Vegetables" stackId="a" fill={COLORS[0]} radius={[4, 4, 0, 0]} />
+                  <Bar
+                    dataKey="vegetables"
+                    name="Vegetables"
+                    stackId="a"
+                    fill={COLORS[0]}
+                    radius={[4, 4, 0, 0]}
+                  />
                   <Bar dataKey="fruits" name="Fruits" stackId="a" fill={COLORS[4]} />
-                  <Bar dataKey="fastFood" name="Fast food" stackId="b" fill={COLORS[3]} radius={[4, 4, 0, 0]} />
+                  <Bar
+                    dataKey="fastFood"
+                    name="Fast food"
+                    stackId="b"
+                    fill={COLORS[3]}
+                    radius={[4, 4, 0, 0]}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </div>

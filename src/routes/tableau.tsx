@@ -41,7 +41,9 @@ function TableauPage() {
           <div className="flex items-start gap-3">
             <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
             <div>
-              <h2 className="text-lg font-semibold text-foreground">How to connect your Tableau dashboard</h2>
+              <h2 className="text-lg font-semibold text-foreground">
+                How to connect your Tableau dashboard
+              </h2>
               <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
                 <li>Publish your dashboard and story to Tableau Public.</li>
                 <li>Click the share button and copy the embed code URL.</li>
@@ -57,7 +59,9 @@ function TableauPage() {
           <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-lg font-semibold text-foreground">Tableau Dashboard</h2>
-              <p className="text-sm text-muted-foreground">Interactive dashboard with filters and drill-downs.</p>
+              <p className="text-sm text-muted-foreground">
+                Interactive dashboard with filters and drill-downs.
+              </p>
             </div>
             <a
               href={TABLEAU_DASHBOARD_URL}
@@ -83,7 +87,9 @@ function TableauPage() {
           <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-lg font-semibold text-foreground">Tableau Story</h2>
-              <p className="text-sm text-muted-foreground">Narrative flow of the three scenarios.</p>
+              <p className="text-sm text-muted-foreground">
+                Narrative flow of the three scenarios.
+              </p>
             </div>
             <a
               href={TABLEAU_STORY_URL}
@@ -108,8 +114,8 @@ function TableauPage() {
         <div className="rounded-lg border border-dashed border-border bg-muted/40 p-6 text-center">
           <p className="text-sm font-medium text-foreground">No Tableau dashboard published yet?</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            The standalone dashboard and story pages above are built into this web app. Use them as the project
-            deliverables until your Tableau dashboard is ready to embed.
+            The standalone dashboard and story pages above are built into this web app. Use them as
+            the project deliverables until your Tableau dashboard is ready to embed.
           </p>
         </div>
       </Section>

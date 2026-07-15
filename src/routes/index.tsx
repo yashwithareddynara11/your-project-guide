@@ -2,7 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout, Section } from "@/components/layout";
 import { ChartCard, StatCard } from "@/components/chart-card";
 import { keyStats, breakfastConcentrationData, comfortFoodReasonsData } from "@/lib/data/analysis";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  Cell,
+} from "recharts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,7 +33,13 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const CHART_COLORS = ["hsl(155 55% 45%)", "hsl(35 85% 55%)", "hsl(220 60% 55%)", "hsl(0 70% 55%)", "hsl(280 55% 55%)"];
+const CHART_COLORS = [
+  "hsl(155 55% 45%)",
+  "hsl(35 85% 55%)",
+  "hsl(220 60% 55%)",
+  "hsl(0 70% 55%)",
+  "hsl(280 55% 55%)",
+];
 
 function HomePage() {
   const stats = keyStats();
@@ -41,8 +56,8 @@ function HomePage() {
               College Food Choices
             </h1>
             <p className="mt-4 text-lg text-muted-foreground sm:text-xl">
-              A data-driven case study exploring how dietary habits, stress, and lifestyle choices shape
-              academic focus and wellness among college students.
+              A data-driven case study exploring how dietary habits, stress, and lifestyle choices
+              shape academic focus and wellness among college students.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
