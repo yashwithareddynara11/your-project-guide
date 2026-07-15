@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TableauRouteImport } from './routes/tableau'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TableauRoute = TableauRouteImport.update({
+  id: '/tableau',
+  path: '/tableau',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/story': typeof StoryRoute
+  '/tableau': typeof TableauRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/story': typeof StoryRoute
+  '/tableau': typeof TableauRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/story': typeof StoryRoute
+  '/tableau': typeof TableauRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/story'
+  fullPaths: '/' | '/dashboard' | '/story' | '/tableau'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/story'
-  id: '__root__' | '/' | '/dashboard' | '/story'
+  to: '/' | '/dashboard' | '/story' | '/tableau'
+  id: '__root__' | '/' | '/dashboard' | '/story' | '/tableau'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
   StoryRoute: typeof StoryRoute
+  TableauRoute: typeof TableauRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tableau': {
+      id: '/tableau'
+      path: '/tableau'
+      fullPath: '/tableau'
+      preLoaderRoute: typeof TableauRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/story': {
       id: '/story'
       path: '/story'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
   StoryRoute: StoryRoute,
+  TableauRoute: TableauRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
